@@ -52,7 +52,7 @@ double df(double x)
 double chordMethod(double a, double b, double epsilon) 
 {
     int counter = 1;
-    while (abs(b - a) > epsilon) 
+    while (abs(b - a) > epsilon) // пока отрезок больше епсилон
     {
         InputTable(a, b, counter);
         a = a - (b - a) * function(a) / (function(b) - function(a));
