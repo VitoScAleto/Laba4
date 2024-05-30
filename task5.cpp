@@ -4,6 +4,7 @@
 
 using namespace std;
 
+
 int main()
 {
 	setlocale(LC_ALL, "Rus");
@@ -11,12 +12,26 @@ int main()
 	vector<int> arr1;
 	cout << "Введите диапозон значений С:\nC = ";
 	cin >> C;
-	cout << "Введите множитель A(0<=A<=C):\nA = ";
-	cin >> A;
-	cout << "Введите инкрементируещее значений B(0<=B<=C):\nB = ";
-	cin >> B;
-	cout << "Введите начальное значений X0(0<=X0<=C):\nX0 = ";
-	cin >> X0;
+	while (A <= 0 || A >= C)
+	{
+		cout << "Введите множитель A(0<=A<=C):\nA = ";
+		cin >> A;
+		if (A <= 0 ||  A >= C) cout << "Неверный ввод. Повторите попытку" << endl;
+	}
+
+	while (B <= 0 || B >= C)
+	{
+		cout << "Введите инкрементируещее значений B(0<=B<=C):\nB = ";
+		cin >> B;
+		if (B <= 0 || B >= C) cout << "Неверный ввод. Повторите попытку" << endl;
+	}
+	while (X0 <= 0 || X0 > C)
+	{
+		cout << "Введите начальное значений X0(0<=X0<=C):\nX0 = ";
+		cin >> X0;
+		if (X0 <= 0 || X0 > C) cout << "Неверный ввод. Повторите попытку" << endl;
+	}
+	
 	arr1.emplace(arr1.begin(), X0);
 	for (int i = 1; i < C; i++)
 	{
@@ -27,11 +42,11 @@ int main()
 	{
 		cout << i << " ";
 	}
-	for (size_t i = 1; i<arr1.size(); i++)
+	for (size_t i = 1; i < arr1.size(); i++)
 	{
 		if (arr1[0] == arr1[i])
 		{
-			cout << "\nИндекс начала повторяющейся последовательности = " << i+1 << endl;
+			cout << "\nИндекс начала повторяющейся последовательности = " << i + 1 << endl;
 			break;
 		}
 	}
